@@ -4,12 +4,16 @@ interface KeypadState {
     pinCode: string;
     usersCode: string;
     correctPin: boolean;
+    color: string;
+    textPin:string;
 }
 
 const initialState: KeypadState = {
     pinCode: '2552',
     usersCode: '',
     correctPin: false,
+    color: '',
+    textPin:''
 };
 
 export const keypadSlice = createSlice({
@@ -26,9 +30,14 @@ export const keypadSlice = createSlice({
         },
         checkCode: (state) => {
             state.correctPin = state.pinCode === state.usersCode;
-            console.log(state.correctPin);
+            if (state.correctPin) {
+                state.color = 'green';
+                state.textPin = 'Access Granted';
+            } else {
+                state.color = 'red';
+                state.textPin = 'Access Denied';
+            }
         },
-
     },
 });
 

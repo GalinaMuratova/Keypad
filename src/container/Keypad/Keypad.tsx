@@ -6,11 +6,16 @@ import {enterNumber, removeNumber, checkCode} from "./KeypadSlice";
 
 const Keypad = () => {
     const keypadValue = useSelector((state: RootState) => state.keypad.usersCode);
+    const bgColor = useSelector((state: RootState) => state.keypad.color);
+    const pinText = useSelector((state: RootState) => state.keypad.textPin);
     const dispatch = useDispatch();
 
     return (
         <div>
-            <h1>{keypadValue}</h1>
+            <div style={{backgroundColor: bgColor }}>
+                <p>{pinText}</p>
+                <h1>{keypadValue}</h1>
+            </div>
             <div>
                 <button onClick={() => dispatch(enterNumber('1'))}>1</button>
                 <button onClick={() => dispatch(enterNumber('2'))}>2</button>
