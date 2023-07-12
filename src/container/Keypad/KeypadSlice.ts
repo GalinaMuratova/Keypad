@@ -1,22 +1,36 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 interface KeypadState {
-    value: string;
+    pinCode: string;
+    usersCode: string;
+    correctPin: boolean;
 }
 
 const initialState: KeypadState = {
-    value: '',
+    pinCode: '2552',
+    usersCode: '',
+    correctPin: false,
 };
 
 export const keypadSlice = createSlice({
     name: 'keypad',
     initialState,
     reducers: {
-        plus: (state, action: PayloadAction<string>) => {
-            state.value += action.payload;
+        enterNumber: (state, action: PayloadAction<string>) => {
+            if (state.usersCode.length < 4) {
+                state.usersCode += action.payload;
+            }
         },
+        removeNumber: (state) => {
+            state.usersCode = state.usersCode.slice(0, -1);
+        },
+        checkCode: (state) => {
+            state.correctPin = state.pinCode === state.usersCode;
+            console.log(state.correctPin);
+        },
+
     },
 });
 
 export const keypadReducer = keypadSlice.reducer;
-export const {plus} = keypadSlice.actions;
+export const {enterNumber, removeNumber, checkCode} = keypadSlice.actions;
