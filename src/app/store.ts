@@ -1,7 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
+import {keypadReducer} from "../container/Keypad/KeypadSlice";
 
 export const store = configureStore({
-    reducer: {},
+    reducer: {
+        keypad: keypadReducer,
+    },
 });
 
 export type RootState = ReturnType<typeof store.getState>;

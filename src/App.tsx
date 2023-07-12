@@ -1,12 +1,9 @@
 import React from 'react';
 import './App.css';
+import Keypad from "./container/Keypad/Keypad";
 
 const App = () => {
-  return (
-    <div className="App">
-
-    </div>
-  );
+  return <Keypad />
 };
 
 export default App;
