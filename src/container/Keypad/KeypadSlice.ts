@@ -27,14 +27,16 @@ export const keypadSlice = createSlice({
         },
         removeNumber: (state) => {
             state.usersCode = state.usersCode.slice(0, -1);
+            state.color = 'white';
+            state.textPin = '';
         },
         checkCode: (state) => {
             state.correctPin = state.pinCode === state.usersCode;
             if (state.correctPin) {
-                state.color = 'green';
+                state.color = 'lightgreen';
                 state.textPin = 'Access Granted';
             } else {
-                state.color = 'red';
+                state.color = 'coral';
                 state.textPin = 'Access Denied';
             }
         },

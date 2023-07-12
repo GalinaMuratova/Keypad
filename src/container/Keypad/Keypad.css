@@ -1,0 +1,43 @@
+.keypad-block {
+    background-color: white;
+    width: 250px;
+    height: 320px;
+    margin: 0 auto;
+    text-align: center;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    box-shadow: 0 0 7px 0 rgba(34, 60, 80, 0.2);
+}
+
+.display {
+    height: 60px;
+    margin: 5px 10px 5px;
+    padding: 0 0 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 7px 0 rgba(34, 60, 80, 0.2) inset;
+}
+
+.display p {
+    padding: 10px 0 0;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.display span {
+    font-size: 30px;
+}
+
+.key-board {
+    display: flex;
+    flex-direction: column;
+}
+
+.key-board button {
+    font-family: 'Montserrat', sans-serif;
+    width: 69px;
+    height: 40px;
+    margin: 5px;
+    border-radius: 8px;
+    border: none;
+    font-size: 20px;
+}
